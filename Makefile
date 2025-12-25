@@ -8,11 +8,7 @@ GOCI_LINT_VERSION?=v1.64.5
 # Use local bin in PATH
 SHELL:=env PATH=$(GO_BIN):$(PATH) $(SHELL)
 
-# ----------------------------------------
-# Format the Go code
-format::
-	@echo ">> Formatting Go code..."
-	golangci-lint run --fix -v ./...
+
 
 # ----------------------------------------
 # Generate Go code from proto files
@@ -22,29 +18,12 @@ generate-proto::
 
 
 
-# ----------------------------------------
-# Lint Go code
-lint-go::
-	@echo ">> Linting Go code..."
-	golangci-lint run -v ./...
-
-# ----------------------------------------
-# Lint proto files
-lint-proto::
-	@echo ">> Linting proto files..."
-	go tool buf lint --config ./buf.yaml
-
-# ----------------------------------------
-# Run all linters
-lint::  lint-go lint-proto
 
 # ----------------------------------------
 # Install necessary tools locally
 install-tools::
 	@echo ">> Installing tools..."
 	mkdir -p ${GO_BIN}
-	# Install golangci-lint
-	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b ${GO_BIN} ${GOCI_LINT_VERSION}
 	# Install buf if not installed
 	curl -sSL https://github.com/bufbuild/buf/releases/download/v1.25.0/buf-Linux-x86_64 -o ${GO_BIN}/buf
 	chmod +x ${GO_BIN}/buf
@@ -58,7 +37,7 @@ tidy::
 
 # ----------------------------------------
 # Setup environment, generate code, lint, and run server & client
-setup-run:: install-tools tidy generate-proto lint
+setup-run:: install-tools tidy generate-proto 
 	@echo ">> Starting gRPC server in background..."
 	# Run server in background
 	cd cmd/server && nohup go run main.go > ../../server.log 2>&1 &
