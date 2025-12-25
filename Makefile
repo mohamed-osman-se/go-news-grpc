@@ -38,10 +38,7 @@ tidy::
 # ----------------------------------------
 # Setup environment, generate code, lint, and run server & client
 setup-run:: install-tools tidy generate-proto 
-	@echo ">> Starting gRPC server in background..."
-	# Run server in background
-	cd cmd/server && nohup go run main.go > ../../server.log 2>&1 &
-	@echo ">> Server is running in background (logs: server.log)"
-	# Give server a moment to start
+	@echo ">>All Done You Can Run The Server. "
+	
 
 
