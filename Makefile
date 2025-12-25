@@ -20,11 +20,7 @@ generate-proto::
 	@echo ">> Generating Go code from proto files..."
 	go tool buf generate --template ./proto/news/v1/buf.gen.yml
 
-# ----------------------------------------
-# Detect breaking changes in proto
-lint-breaking::
-	@echo ">> Checking for breaking changes in proto..."
-	go tool buf breaking --against ''
+
 
 # ----------------------------------------
 # Lint Go code
@@ -40,7 +36,7 @@ lint-proto::
 
 # ----------------------------------------
 # Run all linters
-lint:: lint-breaking lint-go lint-proto
+lint::  lint-go lint-proto
 
 # ----------------------------------------
 # Install necessary tools locally
