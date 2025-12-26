@@ -40,23 +40,18 @@ The goal of this project is to demonstrate **core backend engineering skills**: 
 
 ---
 
-## Project Structure
+## Technologies Used
 
-```text
-.
-├── api/news/v1          # Generated Go code from protobuf definitions
-├── cmd
-│   ├── server           # gRPC server entry point
-│   └── client           # gRPC client example
-├── internal
-│   ├── grpc             # gRPC service implementation
-│   └── memstore         # In-memory data store
-├── proto/news/v1        # Protobuf definitions and buf configuration
-├── Makefile             # Build and automation tasks
-├── buf.yaml             # Buf workspace configuration
-├── buf.lock             # Locked Buf dependencies
-├── go.mod               # Go module definition
-└── README.md            # Project documentation
+| Area | Technology |
+|-----|------------|
+| Language | Go |
+| RPC Framework | gRPC |
+| API Definition | Protocol Buffers (proto3) |
+| Validation | `buf.validate`, `protovalidate-go` |
+| Streaming | Unary, Server-side, Client-side, Bidirectional |
+| Tooling | Buf, Make |
+| Storage | In-memory store |
+
 
 
 
