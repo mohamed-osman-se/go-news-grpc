@@ -1,4 +1,5 @@
-<img width="64" height="64" alt="gRPC" src="https://github.com/user-attachments/assets/REPLACE_ICON_ID" />
+<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/30df20a6-94fb-4d19-8954-bd4776ad99ab" />
+
 
 # News gRPC Service (Go)
 
