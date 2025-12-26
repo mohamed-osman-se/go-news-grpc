@@ -52,9 +52,15 @@ The goal of this project is to demonstrate **core backend engineering skills**: 
 | Storage | In-memory store |
 
 
-## How to Run
+## Video Demo
 
-### Prerequisites
+[![Watch the video](https://img.youtube.com/vi/YY7-1twRleU/0.jpg)](https://youtu.be/YY7-1twRleU?si=0WdRf5yrPwzibJ8a)
+
+
+
+### How to Run
+
+## Prerequisites
 
 - Go 1.20+
 - `make`
@@ -63,12 +69,53 @@ The goal of this project is to demonstrate **core backend engineering skills**: 
 
 ---
 
-### Clone the Repository
+### Clone, Setup & Run
+
+Follow these steps to clone the repository, set up dependencies, and run the server and client:
 
 ```bash
+# Clone the repository
 git clone https://github.com/mohamed-osman-se/go-news-grpc.git
 cd go-news-grpc
+
+# Install tools, tidy modules, and generate proto code
+make setup-run
+
+# Run the gRPC server
+go run ./cmd/server/main.go
+
+# In a separate terminal, run the gRPC client
+go run ./cmd/client/main.go
 ```
+
+### Client Demonstrations
+
+The client demonstrates the following operations:
+
+- Validation failures
+- Create requests
+- Server-side streaming reads
+- Client-side streaming updates
+- Bidirectional streaming deletes
+
+---
+
+### Health Checks and Shutdown
+
+- The server registers a **gRPC health service**.
+- OS signals (`SIGINT`, `SIGTERM`) are handled to allow a **clean shutdown**.
+- Ongoing requests are allowed to **complete before exit**.
+
+---
+
+### Limitations
+
+- Data is stored **in-memory** (no persistence).
+- No **authentication** or **authorization**.
+- No **TLS** (uses insecure credentials for local development).
+
+> These trade-offs are intentional to focus on **gRPC mechanics and API design**.
+
 
 
 
