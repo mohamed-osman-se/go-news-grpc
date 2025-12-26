@@ -47,10 +47,29 @@ The goal of this project is to demonstrate **core backend engineering skills**: 
 | Language | Go |
 | RPC Framework | gRPC |
 | API Definition | Protocol Buffers (proto3) |
-| Validation | `buf.validate`, `protovalidate-go` |
 | Streaming | Unary, Server-side, Client-side, Bidirectional |
 | Tooling | Buf, Make |
 | Storage | In-memory store |
+
+
+## How to Run
+
+### Prerequisites
+
+- Go 1.20+
+- `make`
+- Linux or macOS  
+  *(Windows supported via WSL)*
+
+---
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/mohamed-osman-se/go-news-grpc.git
+cd go-news-grpc
+```
+
 
 
 
