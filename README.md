@@ -1,4 +1,5 @@
-<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/30df20a6-94fb-4d19-8954-bd4776ad99ab" />
+<img width="225" height="225" alt="image" src="https://github.com/user-attachments/assets/77e3f999-0e0d-404d-b8c0-df8b3e310b69" />
+
 
 
 # News gRPC Service (Go)
@@ -39,11 +40,23 @@ The goal of this project is to demonstrate **core backend engineering skills**: 
 
 ---
 
-## Validation Approach
+## Project Structure
 
-Validation rules are defined **directly in the Protocol Buffer schema** using `buf.validate`.
+```text
+.
+├── api/news/v1          # Generated Go code from protobuf definitions
+├── cmd
+│   ├── server           # gRPC server entry point
+│   └── client           # gRPC client example
+├── internal
+│   ├── grpc             # gRPC service implementation
+│   └── memstore         # In-memory data store
+├── proto/news/v1        # Protobuf definitions and buf configuration
+├── Makefile             # Build and automation tasks
+├── buf.yaml             # Buf workspace configuration
+├── buf.lock             # Locked Buf dependencies
+├── go.mod               # Go module definition
+└── README.md            # Project documentation
 
-Example:
 
-```proto
-string source = 6 [(buf.validate.field).string.uri = true];
+
